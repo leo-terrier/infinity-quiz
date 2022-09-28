@@ -1,59 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <!----------------NAV BAR------------------>
-    <nav>
-      <div class="greaterDiv-logo">
-        <div class="logo-img-container">
-          <div class="image-infinity-container">
-            <img src="./images/infinity.png" />
-          </div>
-          <div class="image-buzzer-container">
-            <img src="./images/buzz.png" />
-          </div>
-          <div class="image-infinity-container">
-            <img src="./images/infinity.png" />
-          </div>
-        </div>
-        <p class="logoText">Infinity Quiz</p>
-      </div>
-    </nav>
 
-    <!----------------MAIN------------------>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet" />
+</head>
 
-    <main>
-      <h1>El quiz de la muerte (la mort en espagnol)</h1>
-      <form action="question.html">
-        <button type="submit" value="Start" class="start greaterDiv-logo">
-          <div class="greaterDiv-logo">
-            <div class="logo-img-container">
-              <div class="image-infinity-container">
-                <img src="./images/infinity.png" />
-              </div>
-              <div class="image-buzzer-container">
-                <img src="./images/buzz.png" />
-              </div>
-              <div class="image-infinity-container">
-                <img src="./images/infinity.png" />
-              </div>
-            </div>
-            <p>START</p>
-          </div>
-        </button>
-      </form>
-      <div class="ladderboard">
-        <div></div>
-        <div></div>
-      </div>
-    </main>
-    <script src="./script.js"></script>
-  </body>
+<body>
+  <!----------------NAV BAR------------------>
+  <nav>
+    <div class="logo-container">
+      <img src="./images/logodef.png">
+    </div>
+  </nav>
+
+  <!----------------MAIN------------------>
+
+  <main class="index">
+    <h1>Infinity quiz</h1>
+    <h2>Le quiz est infini, mais pas votre nombre de vie...</h2>
+    <form action="question.html">
+      <button type="submit" value="Start" class="start">
+        <p class="greaterDiv-logo">START</p>
+      </button>
+    </form>
+  </main>
+  <script src="./script.js"></script>
+
+  <!----------------FOOOTER------------------>
+
+  <footer>
+    <p>Last Score : #</p>
+  </footer>
+
+
+</body>
+
 </html>
