@@ -1,21 +1,38 @@
 /* COMMUN */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;700;800&display=swap');
 
-body {
-  background-image: url("./images/background.png");
-  background-position: contain;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* PAGE HOME */
-/* PAGE QUESTION */
+html {
+  height: 100%;
+}
+
+
+body {
+  background: linear-gradient(.25turn, #70D9E0 10%, #387CD4);
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
 nav {
-  height: 10%;
+  height: 5rem;
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
 }
 
 .logo-container {
-  width: 20%;
+  width: 35%;
+  margin-top: 1.1rem;
 }
 
 .logo-container img {
@@ -23,9 +40,116 @@ nav {
 }
 
 main {
+  font-size: small;
+  flex: 3;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
-.question {
+
+/***************** PAGE HOME *********************/
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 4rem;
+  text-align: center;
+  color: white;
+  padding: 0 1rem 0 1rem;
+}
+
+h2 {
+  text-align: justify;
+  padding: 0 1rem 0 1rem;
+  font-size: clamp(1.3rem, 1.5vw, 2rem);
 
 }
+
+
+button {
+
+  background-color: white;
+  color: #3D6DEA;
+  text-align: center;
+  padding: 0.75rem 4rem 0.75rem 4rem;
+  border-radius: 2rem;
+  border: none;
+  font-size: 2rem;
+  margin-top: 0.6rem;
+
+}
+
+button:hover {
+  color: #6086e7;
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+footer {
+  /*   font-family: 'Open Sans', sans-serif;
+ */
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #3D6DEA;
+  flex: 1;
+  width: 100%;
+  background-image: url(images/polygon.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0 0 1.2rem 1.4rem;
+}
+
+footer p {
+  /* font-size: 1.3rem; */
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 1rem 1rem;
+}
+
+/********************** DESKTOP INTEGRATION *************************/
+
+@media screen and (min-width: 600px) {
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo-container img {
+    height: 100%;
+  }
+
+  h1 {
+    margin-top: 5rem;
+    font-size: clamp(4rem, 7vw, 6.5rem);
+    /* font-size: 6.5rem; */
+    font-weight: 900;
+  }
+
+  button {
+    padding: 2rem 10rem 2rem 10rem;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    border-radius: 4rem;
+  }
+
+  button:hover {
+    color: #6086e7;
+    font-size: 4.5rem;
+    margin-top: 0;
+  }
+
+  footer p {
+    /* font-size: 3rem; */
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    margin: 0 0 1rem 1rem;
+  }
+
+
+
+}
+
+/* PAGE QUESTION */
