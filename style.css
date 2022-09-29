@@ -25,21 +25,63 @@ body {
   align-items: center;
 }
 
+/* --------------NAV----------*/
+
 nav {
-  height: 5rem;
+  height: 4.7rem;
   display: flex;
   justify-content: center;
   margin-top: 1rem;
 }
 
 .logo-container {
-  width: 20%;
-  padding-top: 1rem;
+  width: 35%;
+  margin-top: 0.5rem;
 }
 
 .logo-container img {
   max-width: 100%;
 }
+
+/* --------------INFO BAR----------*/
+
+#info-bar {
+  height: 4rem;
+  width: 100%;
+  margin-bottom: 1.7rem;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#level {
+  font-weight: 600;
+  color: #3D6DEA;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 1px 15px;
+}
+
+#life-container {
+  display: flex;
+  justify-content: space-between;
+  width: 6rem;
+}
+
+.life {
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 100%;
+  background-color: #387CD4;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+
+/* --------------MAIN----------*/
+
+main {}
 
 main.question {
   font-size: small;
@@ -50,109 +92,6 @@ main.question {
   justify-content: space-around;
 }
 
-/***************** PAGE HOME *********************/
-
-h1 {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 4rem;
-  text-align: center;
-  color: white;
-  padding: 0 1rem 0 1rem;
-}
-
-h2 {
-  text-align: justify;
-  padding: 0 1rem 0 1rem;
-  font-size: clamp(1.3rem, 1.5vw, 2rem);
-
-}
-
-
-button {
-
-  background-color: white;
-  color: #3D6DEA;
-  text-align: center;
-  padding: 0.75rem 4rem 0.75rem 4rem;
-  border-radius: 2rem;
-  border: none;
-  font-size: 2rem;
-  margin-top: 0.6rem;
-
-}
-
-button:hover {
-  color: #6086e7;
-  font-size: 2.5rem;
-  margin-top: 0;
-}
-
-footer {
-  /*   font-family: 'Open Sans', sans-serif;
- */
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #3D6DEA;
-  flex: 1;
-  width: 100%;
-  background-image: url(images/polygon.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  padding: 0 0 1.2rem 1.4rem;
-}
-
-footer p {
-  /* font-size: 1.3rem; */
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  margin: 0 0 1rem 1rem;
-}
-
-/********************** DESKTOP INTEGRATION *************************/
-
-@media screen and (min-width: 600px) {
-
-  .logo-container {
-    display: flex;
-    justify-content: center;
-  }
-
-  .logo-container img {
-    height: 100%;
-  }
-
-  h1 {
-    margin-top: 5rem;
-    font-size: clamp(4rem, 7vw, 6.5rem);
-    /* font-size: 6.5rem; */
-    font-weight: 900;
-  }
-
-  button {
-    padding: 2rem 10rem 2rem 10rem;
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    border-radius: 4rem;
-  }
-
-  button:hover {
-    color: #6086e7;
-    font-size: 4.5rem;
-    margin-top: 0;
-  }
-
-  footer p {
-    /* font-size: 3rem; */
-    font-size: clamp(1.5rem, 3vw, 3rem);
-    margin: 0 0 1rem 1rem;
-  }
-
-}
-
-/*************** MAIN ***************/
 main.questions {
   height: 100%;
   display: flex;
@@ -205,4 +144,45 @@ main.questions {
   border: none;
   width: 8rem;
   margin: 0 auto;
+}
+
+/********************** DESKTOP INTEGRATION *************************/
+
+@media screen and (min-width: 600px) {
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo-container img {
+    height: 100%;
+  }
+
+  h1 {
+    margin-top: 5rem;
+    font-size: clamp(4rem, 7vw, 6.5rem);
+    /* font-size: 6.5rem; */
+    font-weight: 900;
+  }
+
+  button {
+    padding: 2rem 10rem 2rem 10rem;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    border-radius: 4rem;
+  }
+
+  button:hover {
+    color: #6086e7;
+    font-size: 4.5rem;
+    margin-top: 0;
+  }
+
+  footer p {
+    /* font-size: 3rem; */
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    margin: 0 0 1rem 1rem;
+  }
+
 }
