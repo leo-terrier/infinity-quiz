@@ -1,5 +1,5 @@
-/* COMMUN */
-<<<<<<< HEAD
+
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 *{
   padding: 0%;
@@ -8,7 +8,9 @@
 body {
   background-image: url("./images/background.png");
   background-position: contain;
-=======
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;700;800&display=swap');
 
 
@@ -16,7 +18,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
->>>>>>> f2fa248fe7e23a112c1174284798b8f183e9fcee
+
 }
 
 html {
@@ -42,21 +44,21 @@ nav {
 }
 
 .logo-container {
-<<<<<<< HEAD
+
   width: 30%;
   position: relative;
   top: 30px;
-=======
-  width: 35%;
-  margin-top: 1.1rem;
->>>>>>> f2fa248fe7e23a112c1174284798b8f183e9fcee
+
+  width: 20%;
+  padding-top: 1rem;
+
 }
 
 .logo-container img {
   max-width: 100%;
 }
 
-main {
+main.question {
   font-size: small;
   flex: 3;
   display: flex;
@@ -65,8 +67,8 @@ main {
   justify-content: space-around;
 }
 
-<<<<<<< HEAD
-}
+
+
 
 .score {
   display: flex;
@@ -100,110 +102,59 @@ justify-content: space-around;
 }
 
 
-=======
-/***************** PAGE HOME *********************/
 
-h1 {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 4rem;
-  text-align: center;
-  color: white;
-  padding: 0 1rem 0 1rem;
-}
-
-h2 {
-  text-align: justify;
-  padding: 0 1rem 0 1rem;
-  font-size: clamp(1.3rem, 1.5vw, 2rem);
-
-}
-
-
-button {
-
-  background-color: white;
-  color: #3D6DEA;
-  text-align: center;
-  padding: 0.75rem 4rem 0.75rem 4rem;
-  border-radius: 2rem;
-  border: none;
-  font-size: 2rem;
-  margin-top: 0.6rem;
-
-}
-
-button:hover {
-  color: #6086e7;
-  font-size: 2.5rem;
-  margin-top: 0;
-}
-
-footer {
-  /*   font-family: 'Open Sans', sans-serif;
- */
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #3D6DEA;
-  flex: 1;
-  width: 100%;
-  background-image: url(images/polygon.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+/*************** MAIN ***************/
+main.questions {
+  height: 100%;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  padding: 0 0 1.2rem 1.4rem;
+  justify-content: center;
 }
 
-footer p {
-  /* font-size: 1.3rem; */
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  margin: 0 0 1rem 1rem;
-}
-
-/********************** DESKTOP INTEGRATION *************************/
-
-@media screen and (min-width: 600px) {
-
-  .logo-container {
-    display: flex;
-    justify-content: center;
-  }
-
-  .logo-container img {
-    height: 100%;
-  }
-
-  h1 {
-    margin-top: 5rem;
-    font-size: clamp(4rem, 7vw, 6.5rem);
-    /* font-size: 6.5rem; */
-    font-weight: 900;
-  }
-
-  button {
-    padding: 2rem 10rem 2rem 10rem;
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    border-radius: 4rem;
-  }
-
-  button:hover {
-    color: #6086e7;
-    font-size: 4.5rem;
-    margin-top: 0;
-  }
-
-  footer p {
-    /* font-size: 3rem; */
-    font-size: clamp(1.5rem, 3vw, 3rem);
-    margin: 0 0 1rem 1rem;
-  }
-
-
+.question {
+  background-color: white;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
 
 }
 
-/* PAGE QUESTION */
->>>>>>> f2fa248fe7e23a112c1174284798b8f183e9fcee
+
+.imgGeographyContainer {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.imgGeographyContainer img {
+  width: 70%;
+  border-radius: 1rem;
+  margin-top: 1.5rem;
+}
+
+.textQuestion {
+  /* width: 80%; */
+  margin: 1.5rem 2rem 1.5rem 2rem;
+  text-align: justify;
+}
+
+
+.answer {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 2fr 2fr;
+  grid-gap: 1rem 0.5rem;
+
+  /* justify-content: center;
+   */
+}
+
+.answer button {
+  background-color: #3D6DEA;
+  padding: 1rem 0rem 1rem 0rem;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 18px;
+  border: none;
+  width: 8rem;
+  margin: 0 auto;
+}
