@@ -12,7 +12,7 @@ const questionListFile = {
   sport: sport,
 };
 
-console.log(questionListFile.geography.results[0]);
+console.log(questionListFile.geography.results[2]);
 
 // Exemple pour faire apparaitre des éléments dans le DOM
 

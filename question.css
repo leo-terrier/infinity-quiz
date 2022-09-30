@@ -1,0 +1,139 @@
+/**************** GLOBAL ******************/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+
+body {
+  background: linear-gradient(.25turn, #70D9E0 10%, #387CD4);
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+
+}
+
+/**************** NAV BAR / LOGO ******************/
+nav {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.logo-container {
+  width: 35%;
+  /* margin-top: 1.1rem; */
+
+}
+
+.logo-container img {
+  max-width: 100%;
+
+}
+
+/**************** MAIN ******************/
+
+
+.question {
+
+  background-color: white;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+/**************** QUESTION ******************/
+
+/**************** SCORE BOX ******************/
+
+.scoreBox {
+  display: flex;
+  height: 80px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  /*  border: 3px solid black; */
+
+}
+
+.scoreBox p {
+  color: #3D6DEA;
+  font-weight: bolder;
+  font-size: 1.5em;
+  font-family: 'Open Sans', sans-serif;
+  /*  border: 1px solid black; */
+}
+
+
+.lives div {
+  height: 30px;
+  width: 30px;
+  background-color: #3D6DEA;
+  border: 5px solid #3D6DEA;
+  border-radius: 50%;
+}
+
+
+.lives {
+  display: flex;
+  width: 7em;
+  /* border: 1px solid black; */
+  justify-content: space-between;
+}
+
+
+
+
+/**************** QUESTION BOX  ******************/
+
+.imgGeographyContainer {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.imgGeographyContainer img {
+  width: 70%;
+  border-radius: 1rem;
+
+}
+
+.textQuestion {
+  /* width: 80%; */
+  margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+  text-align: justify;
+
+}
+
+
+.answer {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 2fr 2fr;
+  grid-gap: 1rem 0.5rem;
+  padding: 0 0 2rem 0;
+  /* justify-content: center;
+   */
+}
+
+.answer button {
+  border: 1px solid black;
+  background-color: #3D6DEA;
+  padding: 1rem 0rem 1rem 0rem;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 15px;
+  border: none;
+  width: 8rem;
+  margin: 0 auto;
+}

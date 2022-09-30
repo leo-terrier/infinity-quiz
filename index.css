@@ -100,7 +100,8 @@ footer {
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    padding: 0 0 1.2rem 1.4rem;
+    /*     padding: 0 0 1.2rem 1.4rem;
+ */
 }
 
 footer p {

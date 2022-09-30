@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="question.css" />
   <title>Quiz</title>
 </head>
 
@@ -19,40 +19,25 @@
 
   <!----------------MAIN------------------>
 
-  <main class="question">
-    <div class="score"></div>
+  <main>
     <div class="question">
+
+      <div class="scoreBox">
+        <p>Level 2</p>
+        <div class="lives">
+          <div class="life1"></div>
+          <div class="life2"></div>
+          <div class="life3"> </div>
+        </div>
+      </div>
+
       <div class="themePhoto">
         <div class="imgGeographyContainer">
           <img src="./images/images theme/geography.jpg">
         </div>
       </div>
       <p class="textQuestion">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia voluptatem doloremque
-        culpa explicabo rerum nisi voluptates voluptatibus, blanditiis vitae, deserunt beatae molestias eius dolore
-        aut
-        dolores tenetur illo quasi quidem.</p>
-
-
-    <!----------------MAIN------------------>
-
-    <main>
-
-      <div class="score"> 
-        <p>Level 2</p>
-        <div>
-<div class="point">
-      <div class="point1"></div>
-        <div class="point2"></div>
-          <div class="point3"> </div>
-        </div>
-      <div class="question"></div>
-
-      <div class="score"></div>
-      <div class="question">
-        
-      </div>
-
-    </main>
+        .</p>
 
       <div class="answer">
         <button class="reponse1">answer 1</button>
@@ -60,20 +45,14 @@
         <button class="reponse3">answer 3</button>
         <button class="reponse4">answer 4</button>
       </div>
+
+      <div class="nextQuestion"></div>
+
     </div>
-    </div>
-    <div class="nextQuestion"></div>
-    </div>
+
+    <script src="./script.js"></script>
+
   </main>
-  <script src="./script.js"></script>
 </body>
-<main>
-  <div class="score"></div>
-  <div class="question">
-  </div>
-</main>
-
-   
-
 
 </html>
