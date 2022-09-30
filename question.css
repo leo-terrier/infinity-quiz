@@ -104,12 +104,13 @@ main {
     width: 100%;
     object-fit: cover;
     border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 }
 
 
 .textQuestion {
     width: 80%;
-
     text-align: justify;
     line-height: 1.4;
     font-weight: 500;
@@ -118,27 +119,69 @@ main {
 
 .answer {
     display: grid;
-    grid-template-columns: 2fr 2fr;
-    grid-template-rows: 2fr 2fr;
-    grid-gap: 1rem 0.5rem;
-
+    grid-template-columns: 1rem 2fr 2fr 1rem;
+    grid-template-rows: repeat (2, 30px);
+    gap: 10px;
     /* justify-content: center;
    */
 }
 
 .answer button {
     background-color: #3D6DEA;
-    padding: 1rem 0rem 1rem 0rem;
     color: white;
-    font-family: 'Open Sans', sans-serif;
     border-radius: 18px;
-    border: none;
-    width: 8rem;
-    margin: 0 auto;
+    border: 0;
+    height: 75px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.marge {
-    height: 8%;
+.answer button:hover {
+    border: 1px solid black;
+}
+
+.reponse1 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.reponse2 {
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+
+.reponse3 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.reponse4 {
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+
+
+.next-question-container {
+    display: block;
+    margin: 0 auto;
+    height: 50px;
+    width: 80%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-question-btn {
+    background-color: green;
+    border-radius: 18px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marge-bot {
+    height: 4%;
 }
 
 /********************** DESKTOP INTEGRATION *************************/
