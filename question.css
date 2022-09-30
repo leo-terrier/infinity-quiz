@@ -1,0 +1,183 @@
+/* COMMUN */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;700;800&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+html {
+    height: 100%;
+}
+
+
+body {
+    background: linear-gradient(.25turn, #70D9E0 10%, #387CD4);
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --------------NAV----------*/
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    height: 10%;
+}
+
+.logo-container {
+    width: 35%;
+    margin-top: 0.5rem;
+}
+
+.logo-container img {
+    max-width: 100%;
+}
+
+/* --------------INFO BAR----------*/
+
+#info-bar {
+    height: 4rem;
+    width: 100%;
+    margin-bottom: 1.7rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#level {
+    font-weight: 600;
+    color: #3D6DEA;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 1px 15px;
+}
+
+#life-container {
+    display: flex;
+    justify-content: space-between;
+    width: 6rem;
+}
+
+.life {
+    height: 1.6rem;
+    width: 1.6rem;
+    border-radius: 100%;
+    background-color: #387CD4;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+
+/* --------------MAIN----------*/
+
+main {
+    background-color: white;
+    height: 76%;
+}
+
+.theme-question {
+    height: 358px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.themePhoto {
+    height: 147px;
+    width: 250px;
+}
+
+.imgGeographyContainer {
+    height: 130px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+
+.textQuestion {
+    width: 80%;
+
+    text-align: justify;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+
+.answer {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 2fr 2fr;
+    grid-gap: 1rem 0.5rem;
+
+    /* justify-content: center;
+   */
+}
+
+.answer button {
+    background-color: #3D6DEA;
+    padding: 1rem 0rem 1rem 0rem;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 18px;
+    border: none;
+    width: 8rem;
+    margin: 0 auto;
+}
+
+.marge {
+    height: 8%;
+}
+
+/********************** DESKTOP INTEGRATION *************************/
+
+@media screen and (min-width: 600px) {
+
+    .logo-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo-container img {
+        height: 100%;
+    }
+
+    h1 {
+        margin-top: 5rem;
+        font-size: clamp(4rem, 7vw, 6.5rem);
+        /* font-size: 6.5rem; */
+        font-weight: 900;
+    }
+
+    button {
+        padding: 2rem 10rem 2rem 10rem;
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        border-radius: 4rem;
+    }
+
+    button:hover {
+        color: #6086e7;
+        font-size: 4.5rem;
+        margin-top: 0;
+    }
+
+    footer p {
+        /* font-size: 3rem; */
+        font-size: clamp(1.5rem, 3vw, 3rem);
+        margin: 0 0 1rem 1rem;
+    }
+
+}
