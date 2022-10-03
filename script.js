@@ -9,7 +9,18 @@
 //   document.querySelector("main").appendChild(p);
 // });
 
+/* --------------- INITIALISATION --------------*/
+
 let score = 0;
+
+const imgGeo = document.createElement("img");
+imgGeo.src = './images/images theme/geography.jpg';
+
+const imgHist = document.createElement("img");
+imgHist.src = './images/images theme/history.jpg';
+
+const catImgElement = document.querySelector("#catImg");
+const questionTextElement = document.querySelectorAll(".textQuestion");
 
 let questions = [
   
@@ -43,24 +54,66 @@ let questions = [
 
 ];
 
+/* --------------- NEW QUESTION --------------*/
+
+const questionsLength = questions.length;
+
+function getRandomIndex(questionsLength) {
+  return Math.floor(Math.random() * questions.length);
+}
+
+function imgCatAssociation(category) {
+  switch (category)  {
+    case "History":
+      catImgElement.src = imgHist.src;
+      break
+    case "Geography":
+      catImgElement.src = imgGeo.src;
+      break
+  }
+}
+
 function newQuestion(){
-  let questionIndex = Math.floor(Math.random) * questions.length;
-  console.log(questionIndex);
-  console.log(parseInt(questionIndex));
+  let questionIndex = Math.floor(getRandomIndex(questions.length));
+  let chosenQuestion = questions[questionIndex];
+  let chosenQuestionCat = chosenQuestion.category;
+  imgCatAssociation(chosenQuestionCat);
+  console.log(chosenQuestionCat);
 };
 
-newQuestion();
+
+
+
+/* --------------- START QUESTION --------------*/
+function loadingpage(){
+  // clear question text 
+}
 
 function startQuestion(){
+  // Call loadingpage()
+  // Sleep
+  newQuestion();
+  // questionTextElement.innerText = questions[i].question;
+  
 
 };
 
+startQuestion();
+/* --------------- SELECT ANSWER --------------*/
 
 function selectAnswer(){
 
 };
 
+/* --------------- NEXT QUESTION --------------*/
 
-function NextQuestion(){
+function nextQuestion(){
 
 };
+
+
+
+
+
+
+
