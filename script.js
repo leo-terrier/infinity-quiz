@@ -21,8 +21,11 @@ imgHist.src = './images/images theme/history.jpg';
 const catImgElement = document.querySelector("#catImg");
 const questionTextElement = document.querySelector(".textQuestion");
 const answerElement = document.querySelectorAll(".answer");
-console.log(answerElement)
-let score = 0;
+const scoreElement = document.querySelector("#score");
+const nextElement = document.querySelector('.nextQuestion');
+const buttonElement = document.querySelectorAll('button');
+
+let score = 1;
 
 let questions = [
 
@@ -56,7 +59,7 @@ let questions = [
 
 ];
 
-
+newQuestion();
 /* --------------- NEW QUESTION --------------*/
 
 
@@ -86,6 +89,13 @@ function answerDistribution(answerList){
 }
 
 function newQuestion() {
+  nextElement.classList.add('hidden');
+  answerElement.forEach((e)=>{
+    e.classList.remove('wrong-answer');
+    e.classList.remove('good-answer');
+  })
+  buttonElement.forEach((e) => e.disabled = false)
+  scoreElement.innerHTML = `Level ${score}`;
   //Choose a random question
   let questionIndex = getRandomIndex();
   let chosenQuestion = questions[questionIndex];
@@ -113,24 +123,32 @@ function loadingpage() {
 function startQuestion() {
   // Call loadingpage()
   // Sleep
-  newQuestion();
   // questionTextElement.innerText = questions[i].question;
-
-
 };
 
-startQuestion();
+;
 /* --------------- SELECT ANSWER --------------*/
+
 
 function selectAnswer(questionList) {
   answerElement.forEach((e)=>{
-    e.addEventListener('click', (event) => {
-      if (e.innerText===questionList.correct_answer){
-        console.log('gg');
+    e.addEventListener('click', () => {
+      if (e.innerText!=questionList.correct_answer){
+        e.classList.add('wrong-answer');
+        for (let i=0; i<answerElement.length; i++){
+          if (answerElement[i].innerText == questionList.correct_answer){
+            answerElement[i].classList.add('good-answer');
+            console.log(answerElement[i]);
+          }
+        }
+        nextQuestion();
       }
       else {
-        console.log('nul');
+        e.classList.add('good-answer');
+        score++;
+        nextQuestion();
       }
+      buttonElement.forEach((e)=>e.disabled = true)
     });
   })
 }
@@ -138,8 +156,11 @@ function selectAnswer(questionList) {
 /* --------------- NEXT QUESTION --------------*/
 
 function nextQuestion() {
-
+  nextElement.classList.remove('hidden');
 };
+
+nextElement.addEventListener('click', () => newQuestion())
+
 
 
 
