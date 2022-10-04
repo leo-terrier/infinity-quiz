@@ -77,9 +77,10 @@ function imgCatAssociation(category) {
 }
 
 function answerDistribution(answerList){
+  let shuffledArray = answerList.sort((a, b) => 0.5 - Math.random());
   let i=0;
   answerElement.forEach((e)=> {
-    e.innerText = answerList[i];
+    e.innerText = shuffledArray[i];
     i++;
   })
 }
@@ -95,9 +96,10 @@ function newQuestion() {
   questionTextElement.innerText = chosenQuestion.question;
   //Make an array with all the answers
   let answers = chosenQuestion.correct_answer.split(',').concat(chosenQuestion.incorrect_answers);
-  console.log(answers);
   //Change answers with chosen answers randomly
   answerDistribution(answers);
+  //Selection of the answer
+  selectAnswer(chosenQuestion);
 };
 
 
@@ -120,9 +122,18 @@ function startQuestion() {
 startQuestion();
 /* --------------- SELECT ANSWER --------------*/
 
-function selectAnswer() {
-
-};
+function selectAnswer(questionList) {
+  answerElement.forEach((e)=>{
+    e.addEventListener('click', (event) => {
+      if (e.innerText===questionList.correct_answer){
+        console.log('gg');
+      }
+      else {
+        console.log('nul');
+      }
+    });
+  })
+}
 
 /* --------------- NEXT QUESTION --------------*/
 
