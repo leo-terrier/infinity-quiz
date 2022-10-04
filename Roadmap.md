@@ -14,12 +14,12 @@
 
 - Faire disparaitre le contenu de l’écran (display : none ?)
 - Attendre une petite seconde (sleep)
-- Choper la balise question (querrySelector)
-- Afficher la nouvel question (innerText)
-- choper la balise image (querrySelector)
-- Afficher la nouvelle image (innerHTML)
-- choper les balises réponses (querrySelector)
-- Afficher les réponses
+- [x] choper la balise image (querrySelector)
+- [x] Afficher la nouvelle image (innerHTML)
+- [x] Choper la balise question (querrySelector)
+- [x] Afficher la nouvel question (innerText)
+- [] choper les balises réponses (querrySelector)
+- [] Afficher les réponses
 
 ## selectAnswer()
 

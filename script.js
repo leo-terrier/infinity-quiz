@@ -11,7 +11,6 @@
 
 /* --------------- INITIALISATION --------------*/
 
-let score = 0;
 
 const imgGeo = document.createElement("img");
 imgGeo.src = './images/images theme/geography.jpg';
@@ -20,12 +19,15 @@ const imgHist = document.createElement("img");
 imgHist.src = './images/images theme/history.jpg';
 
 const catImgElement = document.querySelector("#catImg");
-const questionTextElement = document.querySelectorAll(".textQuestion");
+const questionTextElement = document.querySelector(".textQuestion");
+const answerElement = document.querySelectorAll(".answer");
+console.log(answerElement)
+let score = 0;
 
 let questions = [
-  
+
   q1 = {
-  
+
     category: 'Geography',
     type: 'multiple',
     difficulty: 'medium',
@@ -38,7 +40,7 @@ let questions = [
     category: 'Geography',
     type: 'multiple',
     difficulty: 'medium',
-    question: "hich of these countries is &quot;doubly landlocked&quot; (surrounded entirely by one or more landlocked countries)?",
+    question: "Which of these countries is landlocked (surrounded entirely by one or more landlocked countries)?",
     correct_answer: "Uzbekistan",
     incorrect_answers: ["Switzerland", "Bolivia", "Ethiopia"]
   },
@@ -54,16 +56,17 @@ let questions = [
 
 ];
 
+
 /* --------------- NEW QUESTION --------------*/
 
-const questionsLength = questions.length;
 
-function getRandomIndex(questionsLength) {
+function getRandomIndex() {
   return Math.floor(Math.random() * questions.length);
 }
 
+
 function imgCatAssociation(category) {
-  switch (category)  {
+  switch (category) {
     case "History":
       catImgElement.src = imgHist.src;
       break
@@ -73,41 +76,57 @@ function imgCatAssociation(category) {
   }
 }
 
-function newQuestion(){
-  let questionIndex = Math.floor(getRandomIndex(questions.length));
+function answerDistribution(answerList){
+  let i=0;
+  answerElement.forEach((e)=> {
+    e.innerText = answerList[i];
+    i++;
+  })
+}
+
+function newQuestion() {
+  //Choose a random question
+  let questionIndex = getRandomIndex();
   let chosenQuestion = questions[questionIndex];
-  let chosenQuestionCat = chosenQuestion.category;
-  imgCatAssociation(chosenQuestionCat);
-  console.log(chosenQuestionCat);
+  //Associate img with category
+  imgCatAssociation(chosenQuestion.category);
+  console.log(chosenQuestion.category);
+  //Change question text with the chosen question
+  questionTextElement.innerText = chosenQuestion.question;
+  //Make an array with all the answers
+  let answers = chosenQuestion.correct_answer.split(',').concat(chosenQuestion.incorrect_answers);
+  console.log(answers);
+  //Change answers with chosen answers randomly
+  answerDistribution(answers);
 };
 
 
 
 
 /* --------------- START QUESTION --------------*/
-function loadingpage(){
+function loadingpage() {
   // clear question text 
 }
 
-function startQuestion(){
+function startQuestion() {
   // Call loadingpage()
   // Sleep
   newQuestion();
   // questionTextElement.innerText = questions[i].question;
-  
+
 
 };
 
 startQuestion();
 /* --------------- SELECT ANSWER --------------*/
 
-function selectAnswer(){
+function selectAnswer() {
 
 };
 
 /* --------------- NEXT QUESTION --------------*/
 
-function nextQuestion(){
+function nextQuestion() {
 
 };
 
