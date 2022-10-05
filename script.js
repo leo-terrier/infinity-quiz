@@ -183,13 +183,9 @@ function looseLife() {
     const gameOver = document.createElement("h1");
     gameOver.classList.add("game-over");
     gameOver.innerText = "Game Over";
-    gameOver.style.position = "absolute";
-    gameOver.style.backgroundColor = "black";
-    gameOver.style.color = "white";
     mainElement.appendChild(gameOver);
     const retry = document.createElement("button");
     retry.classList.add("retry-button");
-    retry.style.backgroundColor = "green";
     retry.innerText = "salutsalut";
     gameOver.appendChild(retry);
 
@@ -207,3 +203,4 @@ function looseLife() {
 /* --------------- NEXT QUESTION --------------*/
 
 nextElement.addEventListener("click", async () => await newQuestion());
+
