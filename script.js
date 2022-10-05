@@ -107,7 +107,7 @@ function answerDistribution(answerList) {
 //RESET FUNCTION
 
 async function newQuestion() {
-  catImgElement.src = "images/images theme/loading.jpg";
+  catImgElement.src = "./images/images theme/loading.jpg";
   //RESET
   reset();
   //Choose a random question
