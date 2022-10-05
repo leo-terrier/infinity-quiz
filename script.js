@@ -107,7 +107,7 @@ function answerDistribution(answerList) {
 //RESET FUNCTION
 
 async function newQuestion() {
-  catImgElement.src = "images/images theme/loading.jpg";
+  catImgElement.src = "./images/images theme/loading.jpg";
   //RESET
   reset();
   //Choose a random question
@@ -155,9 +155,11 @@ function pickAnswerCallback(e) {
     score++;
   }
   buttonAnswerElement.forEach((elt) => (elt.disabled = true));
-  setTimeout(() => {
-    newQuestion();
-  }, 1500);
+  if (lives) {
+    setTimeout(() => {
+      newQuestion();
+    }, 1500);
+  }
 }
 
 /* --------------- START QUESTION --------------*/
@@ -204,3 +206,4 @@ function looseLife() {
 
 nextElement.addEventListener("click", async () => await newQuestion());
 
+// hello
