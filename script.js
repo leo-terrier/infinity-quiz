@@ -155,9 +155,11 @@ function pickAnswerCallback(e) {
     score++;
   }
   buttonAnswerElement.forEach((elt) => (elt.disabled = true));
-  setTimeout(() => {
-    newQuestion();
-  }, 1500);
+  if (lives) {
+    setTimeout(() => {
+      newQuestion();
+    }, 1500);
+  }
 }
 
 /* --------------- START QUESTION --------------*/
