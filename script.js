@@ -156,8 +156,8 @@ function pickAnswerCallback(e) {
   }
   buttonAnswerElement.forEach((elt) => (elt.disabled = true));
   setTimeout(() => {
-    nextQuestion();
-  }, 3000);
+    newQuestion();
+  }, 1500);
 }
 
 /* --------------- START QUESTION --------------*/
@@ -205,9 +205,5 @@ function looseLife() {
 }
 
 /* --------------- NEXT QUESTION --------------*/
-
-function nextQuestion() {
-  nextElement.classList.remove("hidden");
-}
 
 nextElement.addEventListener("click", async () => await newQuestion());
