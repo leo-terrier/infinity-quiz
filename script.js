@@ -88,8 +88,7 @@ function answerDistribution(answerList){
   })
 }
 
-function newQuestion() {
-  //RESET
+function reset(){
   nextElement.classList.add('hidden');
   answerElement.forEach((e)=>{
     e.classList.remove('wrong-answer');
@@ -97,6 +96,11 @@ function newQuestion() {
   })
   buttonElement.forEach((e) => e.disabled = false)
   scoreElement.innerHTML = `Level ${score}`;
+}
+
+function newQuestion() {
+  //RESET
+  reset();
   //Choose a random question
   let questionIndex = getRandomIndex();
   let chosenQuestion = questions[questionIndex];
