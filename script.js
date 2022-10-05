@@ -21,6 +21,22 @@ const life1Element = document.querySelector("div.life1");
 const life2Element = document.querySelector("div.life2");
 const life3Element = document.querySelector("div.life3");
 
+///APPEL API///
+const musicAPI = "https://opentdb.com/api.php?amount=1&category=12&difficulty=medium&type=multiple";
+const geoAPI = "https://opentdb.com/api.php?amount=1&category=22&difficulty=medium&type=multiple";
+const historyAPI = "https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple";
+const sportAPI = "https://opentdb.com/api.php?amount=1&category=21&difficulty=medium&type=multiple";
+
+const APIArray = [musicAPI, geoAPI, historyAPI, sportAPI];
+
+const callAPI = async () => {
+  const response = await fetch(APIArray[Math.floor(Math.random() * APIArray.length)]);
+  const responseJSON = await response.json();
+
+  return responseJSON.results;
+};
+///APPEL API///
+
 // const buttonElement = document.querySelectorAll('button');
 let score = 1;
 let lives = 3;
@@ -55,6 +71,7 @@ let questions = [
 ];
 
 newQuestion();
+
 /* --------------- NEW QUESTION --------------*/
 
 function getRandomIndex() {
@@ -70,6 +87,12 @@ function imgCatAssociation(category) {
     case "Geography":
       catImgElement.src = "./images/images theme/geography.jpg";
       break;
+    case "Sports":
+      catImgElement.src = "./images/images theme/sport.jpg";
+      break;
+    case "Entertainment: Music":
+      catImgElement.src = "./images/images theme/music.jpg";
+      break;
   }
 }
 
@@ -82,23 +105,17 @@ function answerDistribution(answerList) {
 }
 
 //RESET FUNCTION
-function reset() {
-  nextElement.classList.add("hidden");
-  buttonAnswerElement.forEach((e) => {
-    e.classList.remove("wrong-answer");
-    e.classList.remove("good-answer");
-  });
-  buttonAnswerElement.forEach((e) => (e.disabled = false));
-  scoreElement.innerHTML = `Level ${score}`;
-}
-function newQuestion() {
+
+async function newQuestion() {
+  catImgElement.src = "images/images theme/loading.jpg";
   //RESET
   reset();
   //Choose a random question
-  chosenQuestion = questions[getRandomIndex()];
+  chosenQuestion = await callAPI();
+  chosenQuestion = chosenQuestion[0];
   //Associate img with category
   imgCatAssociation(chosenQuestion.category);
-  console.log(chosenQuestion.category);
+
   //Change question text with the chosen question
   questionTextElement.innerText = chosenQuestion.question;
   //Make an array with all the answers
@@ -106,13 +123,44 @@ function newQuestion() {
   //Change answers with chosen answers randomly
   answerDistribution(answers);
   //Selection of the answer
-  selectAnswer();
+  buttonAnswerElement.forEach((elt) => {
+    /*  e.removeEventListener("click") */
+    elt.addEventListener("click", pickAnswerCallback);
+  });
+}
+
+function reset() {
+  buttonAnswerElement.forEach((e) => {
+    e.classList.remove("wrong-answer");
+    e.classList.remove("good-answer");
+  });
+  buttonAnswerElement.forEach((e) => (e.disabled = false));
+  scoreElement.innerHTML = `Level ${score}`;
+}
+
+function pickAnswerCallback(e) {
+  if (e.target.innerText !== chosenQuestion.correct_answer) {
+    console.log("bad answer");
+    e.target.classList.add("wrong-answer");
+    buttonAnswerElement.forEach((elt) => {
+      if (elt.innerText === chosenQuestion.correct_answer) {
+        elt.classList.add("good-answer");
+      }
+    });
+    looseLife();
+    console.log(lives);
+  } else {
+    console.log("good answer");
+    e.target.classList.add("good-answer");
+    score++;
+  }
+  buttonAnswerElement.forEach((elt) => (elt.disabled = true));
+  setTimeout(() => {
+    nextQuestion();
+  }, 3000);
 }
 
 /* --------------- START QUESTION --------------*/
-function loadingpage() {
-  // clear question text
-}
 
 function startQuestion() {
   // Call loadingpage()
@@ -156,37 +204,10 @@ function looseLife() {
   }
 }
 
-function pickAnswerCallback(e) {
-  if (e.target.innerText !== chosenQuestion.correct_answer) {
-    console.log("bad answer");
-    e.target.classList.add("wrong-answer");
-    buttonAnswerElement.forEach((elt) => {
-      if (elt.innerText === chosenQuestion.correct_answer) {
-        elt.classList.add("good-answer");
-      }
-    });
-    looseLife();
-    console.log(lives);
-  } else {
-    console.log("good answer");
-    e.target.classList.add("good-answer");
-    score++;
-  }
-  buttonAnswerElement.forEach((elt) => (elt.disabled = true));
-  nextQuestion();
-}
-
-function selectAnswer() {
-  buttonAnswerElement.forEach((elt) => {
-    /*  e.removeEventListener("click") */
-    elt.addEventListener("click", pickAnswerCallback);
-  });
-}
-
 /* --------------- NEXT QUESTION --------------*/
 
 function nextQuestion() {
   nextElement.classList.remove("hidden");
 }
 
-nextElement.addEventListener("click", () => newQuestion());
+nextElement.addEventListener("click", async () => await newQuestion());
