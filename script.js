@@ -89,6 +89,7 @@ function answerDistribution(answerList){
 }
 
 function newQuestion() {
+  //RESET
   nextElement.classList.add('hidden');
   answerElement.forEach((e)=>{
     e.classList.remove('wrong-answer');
@@ -133,10 +134,10 @@ function startQuestion() {
 function selectAnswer(questionList) {
   answerElement.forEach((e)=>{
     e.addEventListener('click', () => {
-      if (e.innerText!=questionList.correct_answer){
+      if (e.innerText!==questionList.correct_answer){
         e.classList.add('wrong-answer');
         for (let i=0; i<answerElement.length; i++){
-          if (answerElement[i].innerText == questionList.correct_answer){
+          if (answerElement[i].innerText === questionList.correct_answer){
             answerElement[i].classList.add('good-answer');
             console.log(answerElement[i]);
           }
@@ -148,7 +149,7 @@ function selectAnswer(questionList) {
         score++;
         nextQuestion();
       }
-      buttonElement.forEach((e)=>e.disabled = true)
+      buttonElement.forEach((e)=>e.disabled = true);
     });
   })
 }
