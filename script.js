@@ -11,18 +11,15 @@
 
 /* --------------- INITIALISATION --------------*/
 
-
-
-
-const mainElement = document.querySelector('main')
+const mainElement = document.querySelector("main");
 const catImgElement = document.querySelector("#catImg");
 const questionTextElement = document.querySelector(".textQuestion");
 const buttonAnswerElement = document.querySelectorAll(".answer");
 const scoreElement = document.querySelector("#score");
-const nextElement = document.querySelector('.nextQuestion');
-const life1Element = document.querySelector('div.life1');
-const life2Element = document.querySelector('div.life2');
-const life3Element = document.querySelector('div.life3');
+const nextElement = document.querySelector(".nextQuestion");
+const life1Element = document.querySelector("div.life1");
+const life2Element = document.querySelector("div.life2");
+const life3Element = document.querySelector("div.life3");
 
 // const buttonElement = document.querySelectorAll('button');
 let score = 1;
@@ -31,40 +28,34 @@ let chosenQuestion;
 
 //TODO
 let questions = [
-
-  q1 = {
-
-    category: 'Geography',
-    type: 'multiple',
-    difficulty: 'medium',
-    question: 'On a London Underground map, what colour is the Circle Line?',
-    correct_answer: 'Yellow',
-    incorrect_answers: ["Red", "Blue", "Green"]
-  },
-
-  q2 = {
-    category: 'Geography',
-    type: 'multiple',
-    difficulty: 'medium',
+  (q1 = {
+    category: "Geography",
+    type: "multiple",
+    difficulty: "medium",
+    question: "On a London Underground map, what colour is the Circle Line?",
+    correct_answer: "Yellow",
+    incorrect_answers: ["Red", "Blue", "Green"],
+  }),
+  (q2 = {
+    category: "Geography",
+    type: "multiple",
+    difficulty: "medium",
     question: "Which of these countries is landlocked (surrounded entirely by one or more landlocked countries)?",
     correct_answer: "Uzbekistan",
-    incorrect_answers: ["Switzerland", "Bolivia", "Ethiopia"]
-  },
-
-  q3 = {
+    incorrect_answers: ["Switzerland", "Bolivia", "Ethiopia"],
+  }),
+  (q3 = {
     category: "History",
     type: "multiple",
     difficulty: "medium",
     question: "Which of these countries was sea charted in 1500 by the Portuguese maritime explorations?",
     correct_answer: "Brazil",
-    incorrect_answers: ["India", "Mozambique", "Madagascar"]
-  },
-
+    incorrect_answers: ["India", "Mozambique", "Madagascar"],
+  }),
 ];
 
 newQuestion();
 /* --------------- NEW QUESTION --------------*/
-
 
 function getRandomIndex() {
   return Math.floor(Math.random() * questions.length);
@@ -74,30 +65,30 @@ function getRandomIndex() {
 function imgCatAssociation(category) {
   switch (category) {
     case "History":
-      catImgElement.src = './images/images theme/history.jpg';
-      break
+      catImgElement.src = "./images/images theme/history.jpg";
+      break;
     case "Geography":
-      catImgElement.src = './images/images theme/geography.jpg';
-      break
+      catImgElement.src = "./images/images theme/geography.jpg";
+      break;
   }
 }
 
-function answerDistribution(answerList){
+function answerDistribution(answerList) {
   let shuffledArray = answerList.sort((a, b) => 0.5 - Math.random());
 
-  buttonAnswerElement.forEach((e, i)=> {
+  buttonAnswerElement.forEach((e, i) => {
     e.innerText = shuffledArray[i];
-  })
+  });
 }
 
 //RESET FUNCTION
-function reset(){ 
-  nextElement.classList.add('hidden');
-  buttonAnswerElement.forEach((e)=>{
-    e.classList.remove('wrong-answer');
-    e.classList.remove('good-answer');
-  })
-  buttonAnswerElement.forEach((e) => e.disabled = false)
+function reset() {
+  nextElement.classList.add("hidden");
+  buttonAnswerElement.forEach((e) => {
+    e.classList.remove("wrong-answer");
+    e.classList.remove("good-answer");
+  });
+  buttonAnswerElement.forEach((e) => (e.disabled = false));
   scoreElement.innerHTML = `Level ${score}`;
 }
 function newQuestion() {
@@ -111,101 +102,91 @@ function newQuestion() {
   //Change question text with the chosen question
   questionTextElement.innerText = chosenQuestion.question;
   //Make an array with all the answers
-  let answers = [...chosenQuestion.incorrect_answers,chosenQuestion.correct_answer];
+  let answers = [...chosenQuestion.incorrect_answers, chosenQuestion.correct_answer];
   //Change answers with chosen answers randomly
   answerDistribution(answers);
   //Selection of the answer
   selectAnswer();
-};
+}
 
 /* --------------- START QUESTION --------------*/
 function loadingpage() {
-  // clear question text 
+  // clear question text
 }
 
 function startQuestion() {
   // Call loadingpage()
   // Sleep
   // questionTextElement.innerText = questions[i].question;
-};
+}
 
-;
 /* --------------- SELECT ANSWER --------------*/
 
-function looseLife (){
-  lives --;
-  if(lives === 2){
+function looseLife() {
+  lives--;
+  if (lives === 2) {
     life3Element.style.backgroundColor = "white";
   }
   if (lives === 1) {
     life2Element.style.backgroundColor = "white";
   }
-  if(lives ===0) {
+  if (lives === 0) {
     life1Element.style.backgroundColor = "white";
-    const gameOver = document.createElement('h1');
-    gameOver.classList.add('game-over');
-    gameOver.innerText = "Game Over"
-    gameOver.style.position = "absolute"
-    gameOver.style.backgroundColor = "black"
-    gameOver.style.color = "white"
+    const gameOver = document.createElement("h1");
+    gameOver.classList.add("game-over");
+    gameOver.innerText = "Game Over";
+    gameOver.style.position = "absolute";
+    gameOver.style.backgroundColor = "black";
+    gameOver.style.color = "white";
     mainElement.appendChild(gameOver);
-    const retry = document.createElement('button');
-    retry.classList.add('retry-button');
+    const retry = document.createElement("button");
+    retry.classList.add("retry-button");
     retry.style.backgroundColor = "green";
-    retry.innerText = "salutsalut"
-    gameOver.appendChild(retry)
-    retry.addEventListener('click', () => window.location.replace("/index.html"));
-    
-  
+    retry.innerText = "salutsalut";
+    gameOver.appendChild(retry);
 
+    const queryString = window.location.search;
+    let scoreArray = [score];
+    if (queryString) {
+      const searchParams = new URLSearchParams(queryString);
+      scoreArray = scoreArray.concat(JSON.parse(searchParams.get("array")));
+    }
+    const arrStr = encodeURIComponent(JSON.stringify(scoreArray));
+    retry.addEventListener("click", () => window.location.replace("/index.html" + "?array=" + arrStr));
   }
 }
 
-
 function pickAnswerCallback(e) {
-    if (e.target.innerText !== chosenQuestion.correct_answer) {
-      console.log('bad answer')
-      e.target.classList.add('wrong-answer');
-      buttonAnswerElement.forEach(elt => {
-        if (elt.innerText === chosenQuestion.correct_answer) {
-          elt.classList.add('good-answer');
-        }
-      })
-      looseLife();
-      console.log(lives);
-    } else {
-      console.log('good answer')
-      e.target.classList.add('good-answer');
-      score++;
-    }
-    buttonAnswerElement.forEach((elt) => elt.disabled = true);
-    nextQuestion();
+  if (e.target.innerText !== chosenQuestion.correct_answer) {
+    console.log("bad answer");
+    e.target.classList.add("wrong-answer");
+    buttonAnswerElement.forEach((elt) => {
+      if (elt.innerText === chosenQuestion.correct_answer) {
+        elt.classList.add("good-answer");
+      }
+    });
+    looseLife();
+    console.log(lives);
+  } else {
+    console.log("good answer");
+    e.target.classList.add("good-answer");
+    score++;
+  }
+  buttonAnswerElement.forEach((elt) => (elt.disabled = true));
+  nextQuestion();
 }
 
 function selectAnswer() {
   buttonAnswerElement.forEach((elt) => {
-   /*  e.removeEventListener("click") */
-    elt.addEventListener('click', pickAnswerCallback)
-  })
+    /*  e.removeEventListener("click") */
+    elt.addEventListener("click", pickAnswerCallback);
+  });
 }
-      
-      
-
-
-
 
 /* --------------- NEXT QUESTION --------------*/
 
 function nextQuestion() {
-  nextElement.classList.remove('hidden');
-};
+  nextElement.classList.remove("hidden");
+}
 
-nextElement.addEventListener('click', () => newQuestion())
-
-
-
-
-
-
-
-
+nextElement.addEventListener("click", () => newQuestion());
