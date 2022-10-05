@@ -67,7 +67,7 @@ button {
   background-color: white;
   color: #3d6dea;
   text-align: center;
-  padding: 0.75rem 4rem 0.75rem 4rem;
+  padding: 1.25rem 4rem 1.25rem 4rem;
   border-radius: 2rem;
   border: none;
   font-size: 2rem;
@@ -76,8 +76,7 @@ button {
 
 button:hover {
   color: #6086e7;
-  font-size: 2.5rem;
-  margin-top: 0;
+  text-decoration: underline;
 }
 
 footer {
@@ -101,8 +100,9 @@ footer {
 
 footer p {
   /* font-size: 1.3rem; */
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  margin: 0 0 1rem 1rem;
+  font-size: clamp(1rem, 4vw, 2rem);
+  margin: 0 0 0.5rem 1rem;
+  color:#3d6eeab3 ;
 }
 
 /********************** DESKTOP INTEGRATION *************************/
@@ -125,8 +125,8 @@ footer p {
   }
 
   button {
-    padding: 2rem 10rem 2rem 10rem;
-    font-size: 4rem;
+    padding: 2rem 7rem 2rem 7rem;
+    font-size: clamp(2rem, 4vw, 4rem);
     margin-bottom: 1rem;
     border-radius: 4rem;
   }
@@ -139,7 +139,7 @@ footer p {
 
   footer p {
     /* font-size: 3rem; */
-    font-size: clamp(1.5rem, 3vw, 3rem);
-    margin: 0 0 1rem 1rem;
+    font-size: clamp(1.5rem, 3vw, 1rem);
+    margin: 0 0 0.5rem 1rem;
   }
 }
