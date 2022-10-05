@@ -22,6 +22,7 @@ const nextElement = document.querySelector('.nextQuestion');
 // const buttonElement = document.querySelectorAll('button');
 
 let score = 1;
+let chosenQuestion;
 
 //TODO
 let questions = [
@@ -94,12 +95,11 @@ function reset(){
   buttonAnswerElement.forEach((e) => e.disabled = false)
   scoreElement.innerHTML = `Level ${score}`;
 }
-
 function newQuestion() {
   //RESET
   reset();
   //Choose a random question
-  let chosenQuestion = questions[getRandomIndex()];
+  chosenQuestion = questions[getRandomIndex()];
   //Associate img with category
   imgCatAssociation(chosenQuestion.category);
   console.log(chosenQuestion.category);
@@ -110,11 +110,8 @@ function newQuestion() {
   //Change answers with chosen answers randomly
   answerDistribution(answers);
   //Selection of the answer
-  selectAnswer(chosenQuestion);
+  selectAnswer();
 };
-
-
-
 
 /* --------------- START QUESTION --------------*/
 function loadingpage() {
@@ -130,24 +127,28 @@ function startQuestion() {
 ;
 /* --------------- SELECT ANSWER --------------*/
 
+function pickAnswerCallback(e) {
+    if (e.target.innerText !== chosenQuestion.correct_answer) {
+      console.log('bad answer')
+      e.target.classList.add('wrong-answer');
+      buttonAnswerElement.forEach(elt => {
+        if (elt.innerText === chosenQuestion.correct_answer) {
+          elt.classList.add('good-answer');
+        }
+      })
+    } else {
+      console.log('good answer')
+      e.target.classList.add('good-answer');
+      score++;
+    }
+    buttonAnswerElement.forEach((elt) => elt.disabled = true);
+    nextQuestion();
+}
 
-function selectAnswer(questionList) {
-  buttonAnswerElement.forEach((e) => {
-    e.addEventListener('click', () => {
-      if (e.innerText !== questionList.correct_answer) {
-        e.classList.add('wrong-answer');
-        buttonAnswerElement.forEach(elt => {
-          if (elt.innerText === questionList.correct_answer) {
-            elt.classList.add('good-answer');
-          }
-        })
-      } else {
-        e.classList.add('good-answer');
-        score++;
-      }
-      buttonAnswerElement.forEach((e) => e.disabled = true);
-      nextQuestion();
-    })
+function selectAnswer() {
+  buttonAnswerElement.forEach((elt) => {
+   /*  e.removeEventListener("click") */
+    elt.addEventListener('click', pickAnswerCallback)
   })
 }
       
