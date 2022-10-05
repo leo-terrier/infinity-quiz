@@ -82,7 +82,7 @@ main{
   height: 30px;
   width: 30px;
   background-color: #3D6DEA;
-  border: 5px solid #3D6DEA;
+  border: 2px solid #3D6DEA;
   border-radius: 50%;
 }
 
@@ -90,9 +90,13 @@ main{
 .lives {
   display: flex;
   width: 7em;
-  /* border: 1px solid black; */
   justify-content: space-between;
+  /* border: 1px solid black; */
 }
+
+/* div.life1{
+  background-color: white;
+} */
 
 
 

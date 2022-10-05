@@ -14,14 +14,19 @@
 
 
 
+const mainElement = document.querySelector('main')
 const catImgElement = document.querySelector("#catImg");
 const questionTextElement = document.querySelector(".textQuestion");
 const buttonAnswerElement = document.querySelectorAll(".answer");
 const scoreElement = document.querySelector("#score");
 const nextElement = document.querySelector('.nextQuestion');
-// const buttonElement = document.querySelectorAll('button');
+const life1Element = document.querySelector('div.life1');
+const life2Element = document.querySelector('div.life2');
+const life3Element = document.querySelector('div.life3');
 
+// const buttonElement = document.querySelectorAll('button');
 let score = 1;
+let lives = 3;
 let chosenQuestion;
 
 //TODO
@@ -127,6 +132,36 @@ function startQuestion() {
 ;
 /* --------------- SELECT ANSWER --------------*/
 
+function looseLife (){
+  lives --;
+  if(lives === 2){
+    life3Element.style.backgroundColor = "white";
+  }
+  if (lives === 1) {
+    life2Element.style.backgroundColor = "white";
+  }
+  if(lives ===0) {
+    life1Element.style.backgroundColor = "white";
+    const gameOver = document.createElement('h1');
+    gameOver.classList.add('game-over');
+    gameOver.innerText = "Game Over"
+    gameOver.style.position = "absolute"
+    gameOver.style.backgroundColor = "black"
+    gameOver.style.color = "white"
+    mainElement.appendChild(gameOver);
+    const retry = document.createElement('button');
+    retry.classList.add('retry-button');
+    retry.style.backgroundColor = "green";
+    retry.innerText = "salutsalut"
+    gameOver.appendChild(retry)
+    retry.addEventListener('click', () => window.location.replace("/index.html"));
+    
+  
+
+  }
+}
+
+
 function pickAnswerCallback(e) {
     if (e.target.innerText !== chosenQuestion.correct_answer) {
       console.log('bad answer')
@@ -136,6 +171,8 @@ function pickAnswerCallback(e) {
           elt.classList.add('good-answer');
         }
       })
+      looseLife();
+      console.log(lives);
     } else {
       console.log('good answer')
       e.target.classList.add('good-answer');
