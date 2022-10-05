@@ -12,21 +12,18 @@
 /* --------------- INITIALISATION --------------*/
 
 
-const imgGeo = document.createElement("img");
-imgGeo.src = './images/images theme/geography.jpg';
 
-const imgHist = document.createElement("img");
-imgHist.src = './images/images theme/history.jpg';
 
 const catImgElement = document.querySelector("#catImg");
 const questionTextElement = document.querySelector(".textQuestion");
-const answerElement = document.querySelectorAll(".answer");
+const buttonAnswerElement = document.querySelectorAll(".answer");
 const scoreElement = document.querySelector("#score");
 const nextElement = document.querySelector('.nextQuestion');
-const buttonElement = document.querySelectorAll('button');
+// const buttonElement = document.querySelectorAll('button');
 
 let score = 1;
 
+//TODO
 let questions = [
 
   q1 = {
@@ -67,34 +64,34 @@ function getRandomIndex() {
   return Math.floor(Math.random() * questions.length);
 }
 
-
+//ATRIBUTE IMG URL INTO #cat-img
 function imgCatAssociation(category) {
   switch (category) {
     case "History":
-      catImgElement.src = imgHist.src;
+      catImgElement.src = './images/images theme/history.jpg';
       break
     case "Geography":
-      catImgElement.src = imgGeo.src;
+      catImgElement.src = './images/images theme/geography.jpg';
       break
   }
 }
 
 function answerDistribution(answerList){
   let shuffledArray = answerList.sort((a, b) => 0.5 - Math.random());
-  let i=0;
-  answerElement.forEach((e)=> {
+
+  buttonAnswerElement.forEach((e, i)=> {
     e.innerText = shuffledArray[i];
-    i++;
   })
 }
 
-function reset(){
+//RESET FUNCTION
+function reset(){ 
   nextElement.classList.add('hidden');
-  answerElement.forEach((e)=>{
+  buttonAnswerElement.forEach((e)=>{
     e.classList.remove('wrong-answer');
     e.classList.remove('good-answer');
   })
-  buttonElement.forEach((e) => e.disabled = false)
+  buttonAnswerElement.forEach((e) => e.disabled = false)
   scoreElement.innerHTML = `Level ${score}`;
 }
 
@@ -102,15 +99,14 @@ function newQuestion() {
   //RESET
   reset();
   //Choose a random question
-  let questionIndex = getRandomIndex();
-  let chosenQuestion = questions[questionIndex];
+  let chosenQuestion = questions[getRandomIndex()];
   //Associate img with category
   imgCatAssociation(chosenQuestion.category);
   console.log(chosenQuestion.category);
   //Change question text with the chosen question
   questionTextElement.innerText = chosenQuestion.question;
   //Make an array with all the answers
-  let answers = chosenQuestion.correct_answer.split(',').concat(chosenQuestion.incorrect_answers);
+  let answers = [...chosenQuestion.incorrect_answers,chosenQuestion.correct_answer];
   //Change answers with chosen answers randomly
   answerDistribution(answers);
   //Selection of the answer
@@ -136,27 +132,29 @@ function startQuestion() {
 
 
 function selectAnswer(questionList) {
-  answerElement.forEach((e)=>{
+  buttonAnswerElement.forEach((e) => {
     e.addEventListener('click', () => {
-      if (e.innerText!==questionList.correct_answer){
+      if (e.innerText !== questionList.correct_answer) {
         e.classList.add('wrong-answer');
-        for (let i=0; i<answerElement.length; i++){
-          if (answerElement[i].innerText === questionList.correct_answer){
-            answerElement[i].classList.add('good-answer');
-            console.log(answerElement[i]);
+        buttonAnswerElement.forEach(elt => {
+          if (elt.innerText === questionList.correct_answer) {
+            elt.classList.add('good-answer');
           }
-        }
-        nextQuestion();
-      }
-      else {
+        })
+      } else {
         e.classList.add('good-answer');
         score++;
-        nextQuestion();
       }
-      buttonElement.forEach((e)=>e.disabled = true);
-    });
+      buttonAnswerElement.forEach((e) => e.disabled = true);
+      nextQuestion();
+    })
   })
 }
+      
+      
+
+
+
 
 /* --------------- NEXT QUESTION --------------*/
 

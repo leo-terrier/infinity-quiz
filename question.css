@@ -99,14 +99,14 @@ main{
 
 /**************** QUESTION BOX  ******************/
 
-.imgGeographyContainer {
+.imgContainer {
   max-width: 100%;
   display: flex;
   justify-content: center;
 
 }
 
-.imgGeographyContainer img {
+.imgContainer img {
   width: 70%;
   border-radius: 1rem;
 
