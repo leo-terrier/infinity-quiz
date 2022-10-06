@@ -34,10 +34,11 @@ const callAPI = async () => {
   const responseJSON = await response.json();
   return responseJSON.results;
 };
+
 ///APPEL API///
 
 // const buttonElement = document.querySelectorAll('button');
-let score = 1;
+let score = 0;
 let lives = 3;
 let chosenQuestion;
 
@@ -99,7 +100,7 @@ function answerDistribution(answerList) {
   let shuffledArray = answerList.sort((a, b) => 0.5 - Math.random());
 
   buttonAnswerElement.forEach((e, i) => {
-    e.innerText = shuffledArray[i];
+    e.innerHTML = shuffledArray[i];
   });
 }
 
@@ -116,7 +117,7 @@ async function newQuestion() {
   imgCatAssociation(chosenQuestion.category);
 
   //Change question text with the chosen question
-  questionTextElement.innerText = chosenQuestion.question;
+  questionTextElement.innerHTML = chosenQuestion.question;
   //Make an array with all the answers
   let answers = [...chosenQuestion.incorrect_answers, chosenQuestion.correct_answer];
   //Change answers with chosen answers randomly
@@ -134,7 +135,7 @@ function reset() {
     e.classList.remove("good-answer");
   });
   buttonAnswerElement.forEach((e) => (e.disabled = false));
-  scoreElement.innerHTML = `Level ${score}`;
+  scoreElement.innerHTML = `Score ${score}`;
 }
 
 function pickAnswerCallback(e) {
@@ -181,6 +182,7 @@ function looseLife() {
   }
   if (lives === 0) {
     life1Element.style.backgroundColor = "white";
+
     const gameOverOutterDiv = document.createElement("div");
     const gameOverInnerDiv = document.createElement("div");
     gameOverOutterDiv.classList.add("gameOverOutterDiv");
@@ -194,6 +196,15 @@ function looseLife() {
     gameOverInnerDiv.append(gameOverh1, retryButton);
     gameOverOutterDiv.append(gameOverInnerDiv);
     body.append(gameOverOutterDiv);
+
+    const gameOver = document.createElement("h1");
+    gameOver.classList.add("game-over");
+    gameOver.innerText = "Game Over";
+    mainElement.appendChild(gameOver);
+    const retry = document.createElement("button");
+    retry.classList.add("retry-button");
+    retry.innerText = "salutsalut";
+    gameOver.appendChild(retry);
 
     const queryString = window.location.search;
     let scoreArray = [score];
