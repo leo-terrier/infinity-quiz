@@ -122,6 +122,9 @@ async function newQuestion() {
   let answers = [...chosenQuestion.incorrect_answers, chosenQuestion.correct_answer];
   //Change answers with chosen answers randomly
   answerDistribution(answers);
+
+  buttonAnswerElement.forEach((e) => (e.disabled = false));
+
   //Selection of the answer
   buttonAnswerElement.forEach((elt) => {
     /*  e.removeEventListener("click") */
@@ -134,7 +137,6 @@ function reset() {
     e.classList.remove("wrong-answer");
     e.classList.remove("good-answer");
   });
-  buttonAnswerElement.forEach((e) => (e.disabled = false));
   scoreElement.innerHTML = `Score ${score}`;
 }
 

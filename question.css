@@ -16,6 +16,7 @@ body {
   background: linear-gradient(0.25turn, #70d9e0 10%, #387cd4);
   font-family: "Open Sans", sans-serif;
   height: 100%;
+  overflow: hidden;
 }
 
 /**************** NAV BAR / LOGO ******************/
@@ -130,7 +131,6 @@ main {
 
 .answer {
   background-color: #3d6dea;
-  padding: 1rem 0rem 1rem 0rem;
   color: white;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
@@ -375,7 +375,6 @@ main {
   .answer {
     border: 1px solid black;
     background-color: #3d6dea;
-    padding: 1rem 0rem 1rem 0rem;
     color: white;
     font-family: ‘Open Sans’, sans-serif;
     font-size: 1.2rem;
