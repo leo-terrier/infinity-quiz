@@ -39,7 +39,7 @@ return responseJSON.results;
 ///APPEL API///
 
 // const buttonElement = document.querySelectorAll('button');
-let score = 1;
+let score = 0;
 let lives = 3;
 let chosenQuestion;
 
@@ -136,7 +136,7 @@ function reset() {
     e.classList.remove("good-answer");
   });
   buttonAnswerElement.forEach((e) => (e.disabled = false));
-  scoreElement.innerHTML = `Level ${score}`;
+  scoreElement.innerHTML = `Score ${score}`;
 }
 
 function pickAnswerCallback(e) {
