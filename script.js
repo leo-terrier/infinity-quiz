@@ -33,8 +33,9 @@ const callAPI = async () => {
   const response = await fetch(APIArray[Math.floor(Math.random() * APIArray.length)]);
   const responseJSON = await response.json();
 
-  return responseJSON.results;
+return responseJSON.results;
 };
+
 ///APPEL API///
 
 // const buttonElement = document.querySelectorAll('button');
@@ -100,7 +101,7 @@ function answerDistribution(answerList) {
   let shuffledArray = answerList.sort((a, b) => 0.5 - Math.random());
 
   buttonAnswerElement.forEach((e, i) => {
-    e.innerText = shuffledArray[i];
+    e.innerHTML = shuffledArray[i];
   });
 }
 
@@ -117,7 +118,7 @@ async function newQuestion() {
   imgCatAssociation(chosenQuestion.category);
 
   //Change question text with the chosen question
-  questionTextElement.innerText = chosenQuestion.question;
+  questionTextElement.innerHTML = chosenQuestion.question;
   //Make an array with all the answers
   let answers = [...chosenQuestion.incorrect_answers, chosenQuestion.correct_answer];
   //Change answers with chosen answers randomly
