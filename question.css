@@ -236,15 +236,7 @@ main {
     box-shadow: 0 0 30px #f09;
     text-shadow: 0 0 30px #f09;
   }
-  25% {
-    box-shadow: 0 0 60px #f09;
-    text-shadow: 0 0 8px #fff, 0 0 4px #fff;
-  }
   50% {
-    box-shadow: 0 0 30px #f09;
-    text-shadow: 0 0 30px #f09;
-  }
-  75% {
     box-shadow: 0 0 60px #f09;
     text-shadow: 0 0 8px #fff, 0 0 4px #fff;
   }
@@ -270,7 +262,7 @@ main {
   width: 20%;
   min-width: 307px;
   animation-name: shine;
-  animation-duration: 8s;
+  animation-duration: 3s;
   animation-delay: 2s;
   box-shadow: 0 0 30px #f09;
   text-shadow: 0 0 30px #f09;
