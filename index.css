@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background: linear-gradient(0.25turn, #70d9e0 10%, #387cd4);
+  background: linear-gradient(0.25turn, #70d8e0 10%, #387cd4);
   font-family: "Open Sans", sans-serif;
   height: 100%;
   display: flex;
