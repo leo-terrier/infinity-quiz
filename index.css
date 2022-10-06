@@ -72,11 +72,13 @@ button {
   border: none;
   font-size: 2rem;
   margin-top: 0.6rem;
+  
 }
 
 button:hover {
   color: #6086e7;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 footer {
@@ -133,8 +135,6 @@ footer p {
 
   button:hover {
     color: #6086e7;
-    font-size: 4.5rem;
-    margin-top: 0;
   }
 
   footer p {
