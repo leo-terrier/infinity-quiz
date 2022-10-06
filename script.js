@@ -10,7 +10,7 @@
 // });
 
 /* --------------- INITIALISATION --------------*/
-
+const body = document.querySelector("body");
 const mainElement = document.querySelector("main");
 const catImgElement = document.querySelector("#catImg");
 const questionTextElement = document.querySelector(".textQuestion");
@@ -32,7 +32,6 @@ const APIArray = [musicAPI, geoAPI, historyAPI, sportAPI];
 const callAPI = async () => {
   const response = await fetch(APIArray[Math.floor(Math.random() * APIArray.length)]);
   const responseJSON = await response.json();
-
   return responseJSON.results;
 };
 ///APPEL API///
@@ -182,18 +181,19 @@ function looseLife() {
   }
   if (lives === 0) {
     life1Element.style.backgroundColor = "white";
-    const gameOver = document.createElement("h1");
-    gameOver.classList.add("game-over");
-    gameOver.innerText = "Game Over";
-    gameOver.style.position = "absolute";
-    gameOver.style.backgroundColor = "black";
-    gameOver.style.color = "white";
-    mainElement.appendChild(gameOver);
-    const retry = document.createElement("button");
-    retry.classList.add("retry-button");
-    retry.style.backgroundColor = "green";
-    retry.innerText = "salutsalut";
-    gameOver.appendChild(retry);
+    const gameOverOutterDiv = document.createElement("div");
+    const gameOverInnerDiv = document.createElement("div");
+    gameOverOutterDiv.classList.add("gameOverOutterDiv");
+    gameOverInnerDiv.classList.add("gameOverInnerDiv");
+    const gameOverh1 = document.createElement("h1");
+    gameOverh1.innerText = "GAME OVER";
+    gameOverh1.classList.add("gameOverh1");
+    const retryButton = document.createElement("button");
+    retryButton.classList.add("retryButton");
+    retryButton.innerText = "PLAY AGAIN";
+    gameOverInnerDiv.append(gameOverh1, retryButton);
+    gameOverOutterDiv.append(gameOverInnerDiv);
+    body.append(gameOverOutterDiv);
 
     const queryString = window.location.search;
     let scoreArray = [score];
@@ -202,7 +202,8 @@ function looseLife() {
       scoreArray = scoreArray.concat(JSON.parse(searchParams.get("array")));
     }
     const arrStr = encodeURIComponent(JSON.stringify(scoreArray));
-    retry.addEventListener("click", () => window.location.replace("/index.html" + "?array=" + arrStr));
+
+    retryButton.addEventListener("click", () => window.location.replace("/index.html" + "?array=" + arrStr));
   }
 }
 
