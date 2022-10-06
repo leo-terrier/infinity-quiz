@@ -197,15 +197,6 @@ function looseLife() {
     gameOverOutterDiv.append(gameOverInnerDiv);
     body.append(gameOverOutterDiv);
 
-    const gameOver = document.createElement("h1");
-    gameOver.classList.add("game-over");
-    gameOver.innerText = "Game Over";
-    mainElement.appendChild(gameOver);
-    const retry = document.createElement("button");
-    retry.classList.add("retry-button");
-    retry.innerText = "salutsalut";
-    gameOver.appendChild(retry);
-
     const queryString = window.location.search;
     let scoreArray = [score];
     if (queryString) {
