@@ -1,35 +1,29 @@
-# Roadmap
+## Core gameplay
 
-- initialiser score à 0
+- **Main points**
 
-## newQuestion()
+  - Trivia game
+  - The main goal is to answer a maximum of questions
+  - The level of the player defines his score
+  - Infinite questions with 4 answers
+  - No time limit
 
-- [x] Choper une question ALÉATOIRE
-- [x] Choper les réponses correspondantes
-- [x] Chopper la catégorie
-- [x] Associer l’image à la catégorie
-- [] startQuestion()
+- **Lives**
+  - the player has 3 lives at the beginning of the game
+  - he loses 1 life when answering wrong
+- **Flow:**
 
-## startQuestion()
+  - player enters the main menu
+  - clicks starts to start the game
+  - answer the question by clicking his answer
+  - if answer is good, the button is colored in green
+  - if answer is wrong, his answer is colored in red and the correct answer is colored in green
+  - if player looses all his lives, game over screen with option to play again
+  - if the player does not have any more lives, the “main menu” button appears
 
-- Faire disparaitre le contenu de l’écran (display : none ?)
-- Attendre une petite seconde (sleep)
-- [x] choper la balise image (querrySelector)
-- [x] Afficher la nouvelle image (innerHTML)
-- [x] Choper la balise question (querrySelector)
-- [x] Afficher la nouvel question (innerText)
-- [] choper les balises réponses (querrySelector)
-- [] Afficher les réponses
-
-## selectAnswer()
-
-- addEventListener click sur balises
-  - Si clique sur bonne réponse
-    - Apparait vert, +1 au score, fait apparaitre le bouton suivant
-  - Sinon
-    - Apparait rouge, bonne réponse en vert, fait apparaitre le bouton suivant
-
-## nextQuestion()
-
-- addEventListener click sur Next
-  - newQuestion()
+- Authors
+  - Cyril Leclercq
+  - Leo Terrier
+  - Cédric Cleron
+  - Yossef Kassabi
+  - Jordann Le Gal
