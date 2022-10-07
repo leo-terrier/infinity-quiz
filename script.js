@@ -15,21 +15,15 @@ function htmlDecode(input) {
 }
 
 ///APPEL API///
-const musicAPI =
-  "https://opentdb.com/api.php?amount=1&category=12&difficulty=medium&type=multiple";
-const geoAPI =
-  "https://opentdb.com/api.php?amount=1&category=22&difficulty=medium&type=multiple";
-const historyAPI =
-  "https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple";
-const sportAPI =
-  "https://opentdb.com/api.php?amount=1&category=21&difficulty=medium&type=multiple";
+const musicAPI = "https://opentdb.com/api.php?amount=1&category=12&difficulty=medium&type=multiple";
+const geoAPI = "https://opentdb.com/api.php?amount=1&category=22&difficulty=medium&type=multiple";
+const historyAPI = "https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple";
+const sportAPI = "https://opentdb.com/api.php?amount=1&category=21&difficulty=medium&type=multiple";
 
 const APIArray = [musicAPI, geoAPI, historyAPI, sportAPI];
 
 const callAPI = async () => {
-  const response = await fetch(
-    APIArray[Math.floor(Math.random() * APIArray.length)]
-  );
+  const response = await fetch(APIArray[Math.floor(Math.random() * APIArray.length)]);
   const responseJSON = await response.json();
   return responseJSON.results;
 };
@@ -55,8 +49,7 @@ let questions = [
     category: "Geography",
     type: "multiple",
     difficulty: "medium",
-    question:
-      "Which of these countries is landlocked (surrounded entirely by one or more landlocked countries)?",
+    question: "Which of these countries is landlocked (surrounded entirely by one or more landlocked countries)?",
     correct_answer: "Uzbekistan",
     incorrect_answers: ["Switzerland", "Bolivia", "Ethiopia"],
   }),
@@ -64,8 +57,7 @@ let questions = [
     category: "History",
     type: "multiple",
     difficulty: "medium",
-    question:
-      "Which of these countries was sea charted in 1500 by the Portuguese maritime explorations?",
+    question: "Which of these countries was sea charted in 1500 by the Portuguese maritime explorations?",
     correct_answer: "Brazil",
     incorrect_answers: ["India", "Mozambique", "Madagascar"],
   }),
@@ -109,7 +101,7 @@ function answerDistribution(answerList) {
 
 async function newQuestion() {
   catImgElement.src = "./images/images theme/loading.jpg";
-  questionTextElement.innerHTML = "LOADING QUESTION....."
+  questionTextElement.innerHTML = "LOADING QUESTION.....";
   //RESET
   reset();
   //Choose a random question
@@ -121,10 +113,7 @@ async function newQuestion() {
   //Change question text with the chosen question
   questionTextElement.innerHTML = chosenQuestion.question;
   //Make an array with all the answers
-  let answers = [
-    ...chosenQuestion.incorrect_answers,
-    chosenQuestion.correct_answer,
-  ];
+  let answers = [...chosenQuestion.incorrect_answers, chosenQuestion.correct_answer];
   //Change answers with chosen answers randomly
   answerDistribution(answers);
 
@@ -151,7 +140,7 @@ function pickAnswerCallback(e) {
     e.target.classList.add("wrong-answer");
     buttonAnswerElement.forEach((elt) => {
       if (elt.innerHTML === htmlDecode(chosenQuestion.correct_answer)) {
-        console.log('adding green on good answer')
+        console.log("adding green on good answer");
         elt.classList.add("good-answer");
       }
     });
@@ -171,7 +160,6 @@ function pickAnswerCallback(e) {
 }
 
 /* --------------- START QUESTION --------------*/
-
 
 /* --------------- SELECT ANSWER --------------*/
 
@@ -208,10 +196,6 @@ function looseLife() {
     }
     const arrStr = encodeURIComponent(JSON.stringify(scoreArray));
 
-    retryButton.addEventListener("click", () =>
-      window.location.replace("/index.html" + "?array=" + arrStr)
-    );
+    retryButton.addEventListener("click", () => window.location.replace("/infinity-quiz/" + "?array=" + arrStr));
   }
 }
-
-
