@@ -196,6 +196,6 @@ function looseLife() {
     }
     const arrStr = encodeURIComponent(JSON.stringify(scoreArray));
 
-    retryButton.addEventListener("click", () => window.location.replace("/" + "?array=" + arrStr));
+    retryButton.addEventListener("click", () => window.location.replace("/infinity-quiz/" + "?array=" + arrStr));
   }
 }
