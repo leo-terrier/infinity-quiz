@@ -1,0 +1,406 @@
+/**************** GLOBAL ******************/
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(0.25turn, #70d9e0 10%, #387cd4);
+  font-family: "Open Sans", sans-serif;
+  height: 100%;
+  overflow: hidden;
+}
+
+/**************** NAV BAR / LOGO ******************/
+nav {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  height: 70%;
+}
+
+.logo-container a {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-container img {
+  max-height: 100%;
+}
+
+/**************** MAIN ******************/
+
+main {
+  height: 85%;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+/**************** QUESTION ******************/
+
+/**************** SCORE BOX ******************/
+
+.scoreBox {
+  display: flex;
+  height: 80px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.scoreBox p {
+  color: #3d6dea;
+  font-weight: bolder;
+  font-size: 1.5em;
+  font-family: "Open Sans", sans-serif;
+}
+
+.remainingLives {
+  display: none;
+}
+
+.lives div {
+  height: 30px;
+  width: 30px;
+  background-color: #3d6dea;
+  border: 2px solid #3d6dea;
+  border-radius: 50%;
+}
+
+.lives {
+  display: flex;
+  width: 7em;
+  max-width: 100%;
+  justify-content: space-between;
+}
+
+/**************** QUESTION BOX  ******************/
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  height: 12rem;
+}
+
+.imgContainer img {
+  height: 100%;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.textQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 8rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.answer-contener {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 2fr 2fr;
+  grid-gap: 1rem 3rem;
+  margin-bottom: 3rem;
+}
+
+.answer {
+  background-color: #3d6dea;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2vmax;
+  border-radius: 15px;
+  border: none;
+  width: 9rem;
+  height: 4.5rem;
+  padding: 0 5px 0 5px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.answer:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.good-answer {
+  background-color: #1ad717;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 15px;
+  border: none;
+  width: 9rem;
+  height: 4.5rem;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.wrong-answer {
+  background-color: #cb1616;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 15px;
+  border: none;
+  width: 9rem;
+  height: 4.5rem;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.game-over {
+  background-color: green;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ///// GAMEOVER PAGE ///// */
+
+@keyframes moveLeft {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0%;
+  }
+}
+
+.gameOverOutterDiv {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  right: 0px;
+  animation-name: moveLeft;
+  animation-duration: 2s;
+}
+
+.gameOverInnerDiv {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.gameOverh1 {
+  color: white;
+  font-size: 100px;
+  text-align: center;
+}
+
+@keyframes shine {
+  0% {
+    box-shadow: 0 0 30px #f09;
+    text-shadow: 0 0 30px #f09;
+  }
+  50% {
+    box-shadow: 0 0 60px #f09;
+    text-shadow: 0 0 8px #fff, 0 0 4px #fff;
+  }
+  100% {
+    box-shadow: 0 0 30px #f09;
+    text-shadow: 0 0 30px #f09;
+  }
+}
+
+.retryButton {
+  position: absolute;
+  bottom: 15%;
+  left: 0%;
+  right: 0%;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 20, 99, 1);
+  border: 10px solid rgba(255, 20, 99, 1);
+  background-color: transparent;
+  font-size: 40px;
+  border-radius: 10px;
+  padding: 5px;
+  width: 20%;
+  min-width: 307px;
+  animation-name: shine;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  box-shadow: 0 0 30px #f09;
+  text-shadow: 0 0 30px #f09;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.retryButton:hover {
+  text-shadow: none;
+  box-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 18px #fff, 0 0 38px #f09,
+    0 0 73px #f09, 0 0 80px #f09, 0 0 94px #f09, 0 0 140px #f09;
+  background-color: rgb(243, 200, 226);
+}
+
+/* /////  ///// */
+
+/*************************************************************************************************************************/
+/********************************************** DESKTOP INTEGRATION ******************************************************/
+/********************************************** DESKTOP INTEGRATION ******************************************************/
+/*************************************************************************************************************************/
+@media screen and (min-width: 600px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  .question {
+    display: grid;
+    grid-template-columns: 0.5% 1fr 3fr 1fr 0.5%;
+    grid-template-rows: 2fr 1fr 2fr;
+    background-color: inherit;
+  }
+
+  /**************** SCORE BOX ******************/
+
+  .scoreBox {
+    grid-column: 2/3;
+    border-radius: 1em;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    height: 9em;
+    width: 80%;
+    min-width: 7.5em;
+    align-self: start;
+    justify-self: center;
+    align-items: flex-start;
+    padding: 0.8em 0.8em 0.8em 0.8em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  }
+
+  .remainingLives {
+    display: inherit;
+    font-size: 0.9rem;
+    color: #3d6dea;
+    font-weight: bolder;
+  }
+
+  /**************** QUESTION BOX ******************/
+  .themePhoto,
+  .textQuestion,
+  .answer-contener {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  }
+
+  .themePhoto,
+  .textQuestion {
+    grid-column: 3/4;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .divider {
+    border-top: 1px solid darkgray;
+    width: 50%;
+  }
+
+  .themePhoto {
+    grid-row: 1/2;
+    border-radius: 1em 1em 0 0;
+    justify-self: stretch;
+    align-self: stretch;
+  }
+
+  .imgContainer {
+    padding: 2rem 0 0 0;
+    min-height: 90%;
+  }
+
+  .textQuestion {
+    grid-row: 2/3;
+    justify-self: stretch;
+    align-self: stretch;
+    height: initial;
+    font-size: 1.2rem;
+    padding: 0 1rem 0 1rem;
+  }
+
+  .answer-contener {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    background-color: white;
+    padding: 2rem 2rem 2rem 2rem;
+    border-radius: 0 0 1em 1em;
+    justify-self: stretch;
+    align-self: stretch;
+    margin-bottom: initial;
+  }
+
+  .answer {
+    background-color: #3d6dea;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 2vmax;
+    border-radius: 1.5rem;
+    border: none;
+    width: 15rem;
+    height: 4.5rem;
+    margin: 0 auto;
+    align-self: center;
+  }
+
+  .wrong-answer {
+    background-color: #cb1616;
+    padding: 1rem 0rem 1rem 0rem;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 1.5rem;
+    border: none;
+    width: 15rem;
+    height: 4.5rem;
+    margin: 0 auto;
+    align-self: center;
+  }
+  .good-answer {
+    background-color: #1ad717;
+    padding: 1rem 0rem 1rem 0rem;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 1.5rem;
+    border: none;
+    width: 15rem;
+    height: 4.5rem;
+    margin: 0 auto;
+    align-self: center;
+  }
+}
