@@ -81,8 +81,6 @@ button:hover {
 }
 
 footer {
-  /*   font-family: 'Open Sans', sans-serif;
- */
   font-weight: 600;
   text-transform: uppercase;
   color: #0063e5;
@@ -95,12 +93,9 @@ footer {
   flex-direction: column;
   justify-content: flex-end;
   align-items: start;
-  /*     padding: 0 0 1.2rem 1.4rem;
- */
 }
 
 footer p {
-  /* font-size: 1.3rem; */
   font-size: clamp(1rem, 4vw, 2rem);
   margin: 0 0 0.5rem 1rem;
   color: #3d6dea;
@@ -114,6 +109,11 @@ footer p {
     justify-content: center;
   }
 
+  .logo-container a {
+    display: flex;
+    justify-content: center;
+  }
+
   .logo-container img {
     height: 100%;
   }
@@ -121,7 +121,6 @@ footer p {
   h1 {
     margin-top: 5rem;
     font-size: clamp(4rem, 7vw, 6.5rem);
-    /* font-size: 6.5rem; */
     font-weight: 900;
   }
 
@@ -137,7 +136,6 @@ footer p {
   }
 
   footer p {
-    /* font-size: 3rem; */
     font-size: clamp(1.5rem, 3vw, 1rem);
     margin: 0 0 0.5rem 1rem;
   }

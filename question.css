@@ -28,13 +28,18 @@ nav {
 }
 
 .logo-container {
+  display: flex;
+  justify-content: center;
   height: 70%;
-  /* margin-top: 1.1rem; */
+}
+
+.logo-container a {
+  display: flex;
+  justify-content: center;
 }
 
 .logo-container img {
-  width: 100%;
-  height: 100%;
+  max-height: 100%;
 }
 
 /**************** MAIN ******************/
@@ -51,7 +56,6 @@ main {
   background-color: white;
   width: 100%;
   height: 100%;
-  font-family: "Open Sans", sans-serif;
 }
 
 /**************** QUESTION ******************/
@@ -64,7 +68,6 @@ main {
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  /*  border: 3px solid black; */
 }
 
 .scoreBox p {
@@ -72,7 +75,6 @@ main {
   font-weight: bolder;
   font-size: 1.5em;
   font-family: "Open Sans", sans-serif;
-  /*  border: 1px solid black; */
 }
 
 .remainingLives {
@@ -92,12 +94,7 @@ main {
   width: 7em;
   max-width: 100%;
   justify-content: space-between;
-  /* border: 1px solid black; */
 }
-
-/* div.life1{
-  background-color: white;
-} */
 
 /**************** QUESTION BOX  ******************/
 
@@ -110,15 +107,18 @@ main {
 .imgContainer img {
   height: 100%;
   border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .textQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 80%;
   height: 8rem;
   font-size: 1.1rem;
   text-align: center;
-  vertical-align: middle;
 }
 
 .answer-contener {
@@ -133,61 +133,49 @@ main {
   background-color: #3d6dea;
   color: white;
   font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
+  font-size: 2vmax;
   border-radius: 15px;
   border: none;
   width: 9rem;
   height: 4.5rem;
+  padding: 0 5px 0 5px;
   margin: 0 auto;
   cursor: pointer;
 }
 
 .answer:hover {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .good-answer {
-  border: 1px solid black;
   background-color: #1ad717;
   color: white;
   font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
   border-radius: 15px;
   border: none;
   width: 9rem;
   height: 4.5rem;
   margin: 0 auto;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .wrong-answer {
-  border: 1px solid black;
   background-color: #cb1616;
   color: white;
   font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
   border-radius: 15px;
   border: none;
   width: 9rem;
   height: 4.5rem;
   margin: 0 auto;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .game-over {
   background-color: green;
-}
-
-.nextQuestion {
-  border: 1px solid black;
-  background-color: #4fa037;
-  padding: 1rem 0rem 1rem 0rem;
-  color: white;
-  font-family: "Open Sans", sans-serif;
-  border-radius: 15px;
-  border: none;
-  width: 8rem;
-  margin: 0 auto;
 }
 
 .hidden {
@@ -229,6 +217,7 @@ main {
 .gameOverh1 {
   color: white;
   font-size: 100px;
+  text-align: center;
 }
 
 @keyframes shine {
@@ -272,7 +261,8 @@ main {
 
 .retryButton:hover {
   text-shadow: none;
-  box-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 18px #fff, 0 0 38px #f09, 0 0 73px #f09, 0 0 80px #f09, 0 0 94px #f09, 0 0 140px #f09;
+  box-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 18px #fff, 0 0 38px #f09,
+    0 0 73px #f09, 0 0 80px #f09, 0 0 94px #f09, 0 0 140px #f09;
   background-color: rgb(243, 200, 226);
 }
 
@@ -298,7 +288,6 @@ main {
 
   .scoreBox {
     grid-column: 2/3;
-    /* border: 2px solid black; */
     border-radius: 1em;
     display: flex;
     background-color: white;
@@ -310,7 +299,8 @@ main {
     justify-self: center;
     align-items: flex-start;
     padding: 0.8em 0.8em 0.8em 0.8em;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   }
 
   .remainingLives {
@@ -324,7 +314,8 @@ main {
   .themePhoto,
   .textQuestion,
   .answer-contener {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   }
 
   .themePhoto,
@@ -338,8 +329,9 @@ main {
     justify-content: space-around;
   }
 
-  .textQuestion {
-    padding: 0 1rem 0 1rem;
+  .divider {
+    border-top: 1px solid darkgray;
+    width: 50%;
   }
 
   .themePhoto {
@@ -359,6 +351,8 @@ main {
     justify-self: stretch;
     align-self: stretch;
     height: initial;
+    font-size: 1.2rem;
+    padding: 0 1rem 0 1rem;
   }
 
   .answer-contener {
@@ -373,11 +367,10 @@ main {
   }
 
   .answer {
-    border: 1px solid black;
     background-color: #3d6dea;
     color: white;
-    font-family: ‘Open Sans’, sans-serif;
-    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
+    font-size: 2vmax;
     border-radius: 1.5rem;
     border: none;
     width: 15rem;
@@ -387,12 +380,10 @@ main {
   }
 
   .wrong-answer {
-    border: 1px solid black;
     background-color: #cb1616;
     padding: 1rem 0rem 1rem 0rem;
     color: white;
-    font-family: ‘Open Sans’, sans-serif;
-    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
     border-radius: 1.5rem;
     border: none;
     width: 15rem;
@@ -401,12 +392,10 @@ main {
     align-self: center;
   }
   .good-answer {
-    border: 1px solid black;
     background-color: #1ad717;
     padding: 1rem 0rem 1rem 0rem;
     color: white;
-    font-family: ‘Open Sans’, sans-serif;
-    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
     border-radius: 1.5rem;
     border: none;
     width: 15rem;

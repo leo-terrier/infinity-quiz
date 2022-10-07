@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <!----------------HEAD------------------>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="question.css" />
-  <title>Quiz</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="question.css" />
+    <title>Quiz</title>
+  </head>
 
+  <!----------------BODY------------------>
 
+  <body>
+    <!----------------NAV BAR------------------>
+    <nav>
+      <div class="logo-container">
+        <a href="index.html"
+          ><img src="./images/logodef.png" alt="logo-disco-ninja"
+        /></a>
+      </div>
+    </nav>
 
+    <!----------------MAIN------------------>
 
-<!----------------BODY------------------>
-
-<body>
-  <!----------------NAV BAR------------------>
-  <nav>
-    <div class="logo-container">
-      <a href="index.html"><img src="./images/logodef.png" alt="logo-disco-ninja"></a>
-    </div>
-  </nav>
-
-  <!----------------MAIN------------------>
-
-  <main>
-    <div class="question">
-      <!----------------SCORE BOX------------------>
-      <div class="scoreBox">
-        
-        <p id="score"></p>
-        <div class="remainingLives">Remaining lives</div>
-        <div class="lives">
-          <div class="life1"></div>
-          <div class="life2"></div>
-          <div class="life3"> </div>
-          
+    <main>
+      <div class="question">
+        <!----------------SCORE BOX------------------>
+        <div class="scoreBox">
+          <p id="score"></p>
+          <div class="remainingLives">Remaining lives</div>
+          <div class="lives">
+            <div class="life1"></div>
+            <div class="life2"></div>
+            <div class="life3"></div>
+          </div>
         </div>
-      </div>
-      <!----------------PHOTO CATEGORY------------------>
+        <!----------------PHOTO CATEGORY------------------>
 
-      <div class="themePhoto">
-        <div class="imgContainer">
-          <img id= "catImg" src= 'https://picsum.photos/200/150'>
+        <div class="themePhoto">
+          <div class="imgContainer">
+            <img id="catImg" src="https://picsum.photos/200/150" />
+          </div>
         </div>
+        <div class="textQuestion">
+          <div class="divider"></div>
+          <p id="question" class="questionParagraph">LOADING QUESTION.....</p>
+          <div class="divider"></div>
+        </div>
+
+        <!----------------RÉPONSE------------------>
+        <div class="answer-contener">
+          <button class="answer">answer 1</button>
+          <button class="answer">answer 2</button>
+          <button class="answer">answer 3</button>
+          <button class="answer">answer 4</button>
+        </div>
+
+        <!----------------NEXT QUESTION------------------>
       </div>
-      <p id= "question" class="textQuestion">LOADING QUESTION.....</p>
-      <!----------------RÉPONSE------------------>
-      <div class="answer-contener">
-        <button class="answer">answer 1</button>
-        <button class="answer">answer 2</button>
-        <button class="answer">answer 3</button>
-        <button class="answer">answer 4</button>
-      </div>
 
-      <!----------------NEXT QUESTION------------------>
-    </div>
-
-    <script src="./script.js"></script>
-
-  </main>
-</body>
-
+      <script src="./script.js"></script>
+    </main>
+  </body>
 </html>

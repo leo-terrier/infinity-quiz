@@ -1,36 +1,35 @@
-// Exemple pour faire apparaitre des éléments dans le DOM
-
-// document.querySelector(".logo-container").addEventListener("click", function () {
-//   const p = document.createElement("p");
-//   p.addEventListener("click", function () {
-//     p.style.display = "none";
-//   });
-//   p.innerHTML = "hello world";
-//   document.querySelector("main").appendChild(p);
-// });
-
 /* --------------- INITIALISATION --------------*/
 const body = document.querySelector("body");
-const mainElement = document.querySelector("main");
 const catImgElement = document.querySelector("#catImg");
-const questionTextElement = document.querySelector(".textQuestion");
+const questionTextElement = document.querySelector(".questionParagraph");
 const buttonAnswerElement = document.querySelectorAll(".answer");
 const scoreElement = document.querySelector("#score");
-const nextElement = document.querySelector(".nextQuestion");
+
 const life1Element = document.querySelector("div.life1");
 const life2Element = document.querySelector("div.life2");
 const life3Element = document.querySelector("div.life3");
 
+function htmlDecode(input) {
+  var doc = new DOMParser().parseFromString(input, "text/html");
+  return doc.documentElement.textContent;
+}
+
 ///APPEL API///
-const musicAPI = "https://opentdb.com/api.php?amount=1&category=12&difficulty=medium&type=multiple";
-const geoAPI = "https://opentdb.com/api.php?amount=1&category=22&difficulty=medium&type=multiple";
-const historyAPI = "https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple";
-const sportAPI = "https://opentdb.com/api.php?amount=1&category=21&difficulty=medium&type=multiple";
+const musicAPI =
+  "https://opentdb.com/api.php?amount=1&category=12&difficulty=medium&type=multiple";
+const geoAPI =
+  "https://opentdb.com/api.php?amount=1&category=22&difficulty=medium&type=multiple";
+const historyAPI =
+  "https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple";
+const sportAPI =
+  "https://opentdb.com/api.php?amount=1&category=21&difficulty=medium&type=multiple";
 
 const APIArray = [musicAPI, geoAPI, historyAPI, sportAPI];
 
 const callAPI = async () => {
-  const response = await fetch(APIArray[Math.floor(Math.random() * APIArray.length)]);
+  const response = await fetch(
+    APIArray[Math.floor(Math.random() * APIArray.length)]
+  );
   const responseJSON = await response.json();
   return responseJSON.results;
 };
@@ -56,7 +55,8 @@ let questions = [
     category: "Geography",
     type: "multiple",
     difficulty: "medium",
-    question: "Which of these countries is landlocked (surrounded entirely by one or more landlocked countries)?",
+    question:
+      "Which of these countries is landlocked (surrounded entirely by one or more landlocked countries)?",
     correct_answer: "Uzbekistan",
     incorrect_answers: ["Switzerland", "Bolivia", "Ethiopia"],
   }),
@@ -64,7 +64,8 @@ let questions = [
     category: "History",
     type: "multiple",
     difficulty: "medium",
-    question: "Which of these countries was sea charted in 1500 by the Portuguese maritime explorations?",
+    question:
+      "Which of these countries was sea charted in 1500 by the Portuguese maritime explorations?",
     correct_answer: "Brazil",
     incorrect_answers: ["India", "Mozambique", "Madagascar"],
   }),
@@ -82,16 +83,16 @@ function getRandomIndex() {
 function imgCatAssociation(category) {
   switch (category) {
     case "History":
-      catImgElement.src = "./images/images theme/history.jpg";
+      catImgElement.src = "./images/images theme/history-resized.jpg";
       break;
     case "Geography":
-      catImgElement.src = "./images/images theme/geography.jpg";
+      catImgElement.src = "./images/images theme/geography-resized.jpg";
       break;
     case "Sports":
-      catImgElement.src = "./images/images theme/sport.jpg";
+      catImgElement.src = "./images/images theme/sport-resized.jpg";
       break;
     case "Entertainment: Music":
-      catImgElement.src = "./images/images theme/music.jpg";
+      catImgElement.src = "./images/images theme/music-resized.jpg";
       break;
   }
 }
@@ -108,6 +109,7 @@ function answerDistribution(answerList) {
 
 async function newQuestion() {
   catImgElement.src = "./images/images theme/loading.jpg";
+  questionTextElement.innerHTML = "LOADING QUESTION....."
   //RESET
   reset();
   //Choose a random question
@@ -119,7 +121,10 @@ async function newQuestion() {
   //Change question text with the chosen question
   questionTextElement.innerHTML = chosenQuestion.question;
   //Make an array with all the answers
-  let answers = [...chosenQuestion.incorrect_answers, chosenQuestion.correct_answer];
+  let answers = [
+    ...chosenQuestion.incorrect_answers,
+    chosenQuestion.correct_answer,
+  ];
   //Change answers with chosen answers randomly
   answerDistribution(answers);
 
@@ -141,11 +146,12 @@ function reset() {
 }
 
 function pickAnswerCallback(e) {
-  if (e.target.innerText !== chosenQuestion.correct_answer) {
+  if (e.target.innerHTML !== htmlDecode(chosenQuestion.correct_answer)) {
     console.log("bad answer");
     e.target.classList.add("wrong-answer");
     buttonAnswerElement.forEach((elt) => {
-      if (elt.innerText === chosenQuestion.correct_answer) {
+      if (elt.innerHTML === htmlDecode(chosenQuestion.correct_answer)) {
+        console.log('adding green on good answer')
         elt.classList.add("good-answer");
       }
     });
@@ -166,11 +172,6 @@ function pickAnswerCallback(e) {
 
 /* --------------- START QUESTION --------------*/
 
-function startQuestion() {
-  // Call loadingpage()
-  // Sleep
-  // questionTextElement.innerText = questions[i].question;
-}
 
 /* --------------- SELECT ANSWER --------------*/
 
@@ -207,12 +208,10 @@ function looseLife() {
     }
     const arrStr = encodeURIComponent(JSON.stringify(scoreArray));
 
-    retryButton.addEventListener("click", () => window.location.replace("/index.html" + "?array=" + arrStr));
+    retryButton.addEventListener("click", () =>
+      window.location.replace("/index.html" + "?array=" + arrStr)
+    );
   }
 }
 
-/* --------------- NEXT QUESTION --------------*/
 
-nextElement.addEventListener("click", async () => await newQuestion());
-
-// hello
