@@ -21,6 +21,10 @@
   - if player looses all his lives, game over screen with option to play again
   - if the player does not have any more lives, the “main menu” button appears
 
+- **Figma** (and wireframes)
+
+https://www.figma.com/file/g4R5qMWJkrR98mXPz27Dih?embed_host=notion&kind=&node-id=0%3A1&viewer=1
+
 - Authors
   - Cyril Leclercq
   - Leo Terrier
